@@ -102,4 +102,35 @@ for x in xrange(1, iteration):
         print str(x)+" X "+str(A)+" congurent 1 (mod "+str(N)+" )"
 ```
 
-# Next sections will be very interesting. WIP
+# Euler's Totient Function
+It calculates positive integer less than n that are coprimes to n (coprime is same as relatively prime). Hence, gcd should be 1. It is denoted by φ
+
+```
+from fractions import *
+
+# Euler Phi is like phi(n) where you input n and it displays all integer < n which are relatively prime to n
+# generally it gives the total number of integers < n which are relatively prime
+
+n = int(raw_input("n: "))
+list_num = []
+
+for x in xrange(1, n):
+	val = gcd(x, n)
+	if val == 1:
+		list_num.append(x)
+
+print list_num
+print "Total : "+str(len(list_num))
+```
+
+Property of totient function is it is multiplication `φ(a.b) = φ(a).φ(b)`
+
+# Prime Numbers
+The most fundamental piece of information. A prime number has only exactly 2 positive divsiors - 1 and the number itself. 
+2,3,5,7, ... are prime number.
+
+1 is neither prime nor composite number
+
+
+
+
