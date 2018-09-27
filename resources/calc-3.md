@@ -37,7 +37,7 @@ and if `r'(t) != 0` , `r'(t)` is a tangent vector
 
 ### Unit Tangent Vector
 ```
-T(t) = r'(t)/|r'(t)|
+T(t) = r'(t)/|r'(t)| = v(t)/|v(t)|
 ```
 
 ### Differentiation by Parts
@@ -50,12 +50,23 @@ d/dx(a(x).b(x)) = a(x)b'(x) + a'(x)b(x)
 ∫ u.dv = u.v - ∫ v.du
 ```
 
-# Arc Length of a Curve
+### Arc Length of a Curve
 
 Vector valued function `r(t) = <f(t), g(t), h(t)>`
 ```
 L = ∫ b sqrt(f'(t)^2+g'(t)^2+h'(t)^2)
     a
+```
+
+### Curvature
+Let r be smooth parameterized curve. s denotes arc length, and T = r'/|r'|
+```
+k(s) = |dT/ds|
+```
+
+### Curvature Formula
+```
+k(t) = (1/|v|)* |dT/dt|
 ```
 
 
