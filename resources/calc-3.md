@@ -2,6 +2,13 @@
 **Not intended for cryptography**
 
 
+### Projection and Scalar
+proj u = scal u * (v/|v|)
+    v        v
+    
+scal u = |u| cos(theta) = (u.v)/|v|
+    v
+
 ### Distance from a line to point Q
 
 We define a point P on the line, and take the line segment of PQ = Q-P. Vector v is used to describe a line being parallel to it
