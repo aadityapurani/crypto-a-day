@@ -16,6 +16,14 @@ Likewise v, n is a vector which is always orthogonal / normal to the plane. Po(x
 a(x-x0)+b(y-y0)+c(z-z0) = 0
 ```
 
+### 3 points lie in the same plane
+Then a,b and c are coplanar
+
+bxc it will produce a vector z which is always perpendicular to `b` and `c` . Hence, a should always be perpendicular to new vector z. Hence, the dot product rule say it two vectors are orthogonal then a.z = 0
+```
+a.(bxc) = 0 
+```
+
 ### Parallel & Orthogonal Planes
 Two planes are orthogonal, if normal vectors of both plane's dot product is 0
 Two planes are paralle, if normal vectors are multiple of each other
@@ -47,7 +55,7 @@ d/dx(a(x).b(x)) = a(x)b'(x) + a'(x)b(x)
 
 ### Integration by Parts
 ```
-∫ u.dv = u.v - ∫ v.du
+∫f(x)g'(x) = f(x).g(x) - ∫f'(x).g(x)dx
 ```
 
 ### Arc Length of a Curve
@@ -69,4 +77,14 @@ k(s) = |dT/ds|
 k(t) = (1/|v|)* |dT/dt|
 ```
 
+```
+k = | v x a | / |v|^3
+```
+
+### Principle Unit Normal Vector
+```
+N(t) = dT/dt
+       ______
+       |dT/dt|
+```
 
