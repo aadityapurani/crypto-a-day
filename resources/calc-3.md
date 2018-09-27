@@ -16,6 +16,16 @@ Likewise v, n is a vector which is always orthogonal / normal to the plane. Po(x
 a(x-x0)+b(y-y0)+c(z-z0) = 0
 ```
 
+### Equation of Tangent Plane if surface is given
+```
+z = f(x,y)
+a = fx(x,y) = differentiation wrt x
+b = fy(x,y) = differentiation wrt y
+c = -1
+
+Plug into the equation of plane and that's it
+```
+
 ### 3 points lie in the same plane
 Then a,b and c are coplanar
 
