@@ -3,11 +3,13 @@
 
 
 ### Projection and Scalar
+```
 proj u = scal u * (v/|v|)
     v        v
     
 scal u = |u| cos(theta) = (u.v)/|v|
     v
+```
 
 ### Distance from a line to point Q
 
