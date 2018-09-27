@@ -24,3 +24,38 @@ Two planes are paralle, if normal vectors are multiple of each other
 You need to find 
 1.) Point of the line
 2.) Vector
+
+### Curves
+Parameterized Curve: Tangent vectors indicate positive orientation
+Unparameterized Curve: Tangent vectors in either of two directions
+
+### Tangent Vector & Derivate Vector
+r(t) = f(t)i+g(t)j+h(t)k
+
+r'(t) is derivative vector
+and if `r'(t) != 0` , `r'(t)` is a tangent vector
+
+### Unit Tangent Vector
+```
+T(t) = r'(t)/|r'(t)|
+```
+
+### Differentiation by Parts
+```
+d/dx(a(x).b(x)) = a(x)b'(x) + a'(x)b(x)
+```
+
+### Integration by Parts
+```
+∫ u.dv = u.v - ∫ v.du
+```
+
+# Arc Length of a Curve
+
+Vector valued function `r(t) = <f(t), g(t), h(t)>`
+```
+L = ∫ b sqrt(f'(t)^2+g'(t)^2+h'(t)^2)
+    a
+```
+
+
