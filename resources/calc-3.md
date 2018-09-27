@@ -1,6 +1,15 @@
 ## Calculus-3
 **Not intended for cryptography**
 
+### Intercepts
+For x-intercept, put y and z to 0
+For y-intercept, put x and z to 0
+For z-intercept, put x and y to 0
+
+### Trace
+xy Trace means make z to 0
+yz Trace means make x to 0
+xz Trace means make y to 0
 
 ### Projection and Scalar
 ```
@@ -19,6 +28,13 @@ We define a point P on the line, and take the line segment of PQ = Q-P. Vector v
 d = (| v x PQ |) / |v|
 ```
 
+### 2 lines passing through one point
+
+We know scaffold equation of line 
+p0 + tv
+
+Here, v should be found in a way, we get dot product result to 0. and then p0 will be the point provided.
+
 ### Equation of plane in 3-dimensions
 Likewise v, n is a vector which is always orthogonal / normal to the plane. Po(x0,y0,z0) and n = <a,b,c>
 ```
@@ -34,6 +50,13 @@ c = -1
 
 Plug into the equation of plane and that's it
 ```
+
+### 2 planes passing through one point
+Let's say given point is (2,2,2) and we have to find two orthogonal planes passing through it. We already know equation of plane
+`a(x-x0)+b(y-y0)+c(z-z0)=0`
+What we can do is choose (a,b,c) in a way that resultant scalar product is 0.
+
+For instance, `<1,1,1>` and `<2,-1,-1>` . Then you can replace in (a,b,c) and get all those 3 points.
 
 ### 3 points lie in the same plane
 Then a,b and c are coplanar
@@ -71,6 +94,10 @@ T(t) = r'(t)/|r'(t)| = v(t)/|v(t)|
 ```
 d/dx(a(x).b(x)) = a(x)b'(x) + a'(x)b(x)
 ```
+
+### Smoothness
+A function is smooth for a line, if derivate is always constant
+If a curve has constant magnitude, it leaves a sphere
 
 ### Integration by Parts
 ```
