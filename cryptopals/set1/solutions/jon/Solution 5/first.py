@@ -1,10 +1,10 @@
 import base64
 
-def solution():
-	input1 = "Hi my name is jon! I'm the coolest guy in the street"
+def solution(input1 = "Hi my name is jon! I'm the coolest guy in the street",xor_string = "Ice ice baby"):
+	#input1 = "Hi my name is jon! I'm the coolest guy in the street"
 	#decoded_input = base64.b16decode(input)
 	decoded_input = input1
-	xor_string = "Ice ice baby"
+	#xor_string = "Ice ice baby"
 	xor_revolving_door = [ord(x) for x in xor_string]
 	i = 0
 	result = ""

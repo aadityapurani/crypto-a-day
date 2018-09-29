@@ -1,24 +1,111 @@
 from collections import Counter
 import base64
+import frequency
 
-def solution():
+def solution(x=None):
 	f=open("code.txt",'r')
 	str = "".join(f.read().split('\n'))
+	#return str
 	f.close()
-	keySize = findKeySize(str)
-def findKeySize(str):
+	div_cypher = x
+	if(x==None):
+		keySizeArray = findKeySize(str)
+		div_cypher = divideCypher(str,keySizeArray)
+	tran_text = transpose(div_cypher)
+	min = 10000
+	lowest_key = -1
+	#need to add min array
+	#need to add lowest_key_array
+	#need to add lowest key array for each set
+	for i in range(len(tran_text)):
+		cur_key_size = tran_text[i]
+		for key in range(256):
+			for str in cur_key_size:
+				sol = "".join([chr(ord(char)^key) for char in str])
+				sco = frequency.score(sol)
+				if(sco<min):
+					min = sco
+					lowest_key = key
+	print(min,lowest_key)
+	sol = "".join([chr(ord(char)^key) for char in str])
+	return sol
+				#test_array=[chr(ord(ai)^key) for ai in a_dec]
+def transpose(L):
+	transposed_array = [["" for _ in range(len(L[i][0]))] for i in range(len(L))]
+	for i in range(len(L)):
+		item = L[i]
+		for j in range(len(item)):
+			str = item[j]
+			#print(i,j,len(str))
+			for k in range(0,len(str)):
+				char = str[k]
+				transposed_array[i][k]+=char
+	return transposed_array
+#returns a list of respective blocks
+def divideCypher(str,E):
+	L = [[] for _ in range(len(E))]
+	for i in range(len(E)):
+		stuff = E[i]
+		print(stuff)
+		size = stuff[1]
+		for j in range(0,len(str),size+1):
+			L[i].append(str[j:j+size])
+	return L
+
+def findKeySize(strl):
+	MAX_NUM = 10000
 	bestKeySize = 2
-	#first,second = str[0:2],str[3:5],str[6-8] str[9-11]
-	#print levenshteinDistance(first,second)/float(2)
 	MAX_KEYSIZE = 40
-	arr = [0 for x in range(len(str))]
-	for i in range(0,len(str),2*2+2):
-		#print('hi')
-		#print(str[i,i+2])
-		arr[i] = levenshteinDistance(str[i:i+2],str[i+3:i+5])
-	print(arr)
-	#for test_KS in range(2,MAX_KEYSIZE):
-		
+	arr = [0 for x in range(len(strl))]
+	
+	L = [[MAX_NUM,-1] for _ in range(4)]
+	for i in range(2,40):
+		count = 0.0
+		sum = 0.0
+		for j in range(0,len(strl),i*2+2):
+			count+=1.0
+			str1 = strl[j:j+i]
+			str2 = strl[j+i+1:j+i*2+1]
+			bt1 = convertToBinaryString(str1)
+			bt2 = convertToBinaryString(str2)
+			sum+= levenshteinDistance(bt1,bt2)/i
+		print(i, sum/count)
+		minList(L,sum/count,i)
+	return L
+
+def minList(L,test,index):
+	min = -1
+	#find it
+	for i in range(len(L)):
+		if(L[i][0]>test):
+			min = i
+			break
+	if(min==-1):
+		return
+	#make stuff tickle down
+	for i in range(len(L)-2,min-1,-1):
+		L[i+1] = L[i]
+	L[min] = [test,index]
+
+def maxList(L,test,index):
+	max = -1
+	#find it
+	print("List: {}".format(L))
+	for i in range(len(L)-1,0,-1):
+		print("Testing {} > {}".format(L[i][0],test))
+		if(L[i][0]>test):
+			max = i
+			break
+	#print("found max ",max)
+	if(max==-1):
+		return
+	print(max)
+	#make stuff tickle down
+	for i in range(len(L)-1,max,-1):
+		print("switching: ",L[i-1],L[i])
+		L[i] = L[i-1]
+	L[max+1] = [test,index]
+	
 def convertToBinaryString(string1):
 	str = ""
 	for l in string1:
