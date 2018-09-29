@@ -29,3 +29,14 @@ def xor_fixed(a, b):
 
 xor_fixed("1c0111001f010100061a024b53535009181c","686974207468652062756c6c277320657965")
 ```
+##### Challenge 3
+Single byte xor against cipher-text and identifying using frequency analysis what string has maximum points
+
+```
+python solution3.py 1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736
+This key X generates "Cooking MC's like a pound of bacon" plaintext with 2.2641049 confidence
+This key r generates 'iEEACDM\ngi\rY\nFCAO\nK\nZE_DN\nEL\nHKIED' plaintext with 1.6352478 confidence
+This key v generates 'mAAEG@I\x0ecm\t]\x0eBGEK\x0eO\x0e^A[@J\x0eAH\x0eLOMA@' plaintext with 1.6301552 confidence
+This key R generates 'Ieeacdm*GI-y*fcao*k*ze\x7fdn*el*hkied' plaintext with 1.267941 confidence
+This key 9 generates '"\x0e\x0e\n\x08\x0f\x06A,"F\x12A\r\x08\n\x04A\x00A\x11\x0e\x14\x0f\x05A\x0e\x07A\x03\x00\x02\x0e\x0f' plaintext with 1.1823283 confidence
+```
