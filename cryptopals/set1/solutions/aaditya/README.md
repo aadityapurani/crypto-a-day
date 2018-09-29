@@ -40,3 +40,10 @@ This key v generates 'mAAEG@I\x0ecm\t]\x0eBGEK\x0eO\x0e^A[@J\x0eAH\x0eLOMA@' pla
 This key R generates 'Ieeacdm*GI-y*fcao*k*ze\x7fdn*el*hkied' plaintext with 1.267941 confidence
 This key 9 generates '"\x0e\x0e\n\x08\x0f\x06A,"F\x12A\r\x08\n\x04A\x00A\x11\x0e\x14\x0f\x05A\x0e\x07A\x03\x00\x02\x0e\x0f' plaintext with 1.1823283 confidence
 ```
+
+##### Challenge 5
+`izip` and `cycle` does the trick for us
+```
+python solution5.py "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal" "ICE"
+0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20152d0c69242a69203728393c69342d2c2d6500632d2c22376922652a3a282b2229
+```
