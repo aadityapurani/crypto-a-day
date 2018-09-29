@@ -131,6 +131,9 @@ The most fundamental piece of information. A prime number has only exactly 2 pos
 
 1 is neither prime nor composite number
 
-
+# Extended gcd
+`xgcd(2,3)`  will give `(1, -1, 1)` 
+It's like g = 1 and a=-1 and b=1 , so formula shall be 2a+3b == g. 
+This is Extended GCD. Implementation of this function is present in sage
 
 
