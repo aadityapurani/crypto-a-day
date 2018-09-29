@@ -2,33 +2,29 @@ from collections import Counter
 import base64
 
 def solution():
-	string1 = "this is a test"
-	string2 = "wokka wokka!!!"
-	bin_string1,bin_string2=convertToEvenBinaryString(string1,string2)
-	#bin_string1 = convertToBinaryString(string1)
-	#bin_string2 = convertToBinaryString(string2)
-	#return editDistDP(bin_string1,bin_string2,len(bin_string1),len(bin_string2))
-	return hammingDistance(bin_string1,bin_string2)
-#calculates the hamming distance
-
+	f=open("code.txt",'r')
+	str = "".join(f.read().split('\n'))
+	f.close()
+	keySize = findKeySize(str)
+def findKeySize(str):
+	bestKeySize = 2
+	#first,second = str[0:2],str[3:5],str[6-8] str[9-11]
+	#print levenshteinDistance(first,second)/float(2)
+	MAX_KEYSIZE = 40
+	arr = [0 for x in range(len(str))]
+	for i in range(0,len(str),2*2+2):
+		#print('hi')
+		#print(str[i,i+2])
+		arr[i] = levenshteinDistance(str[i:i+2],str[i+3:i+5])
+	print(arr)
+	#for test_KS in range(2,MAX_KEYSIZE):
+		
 def convertToBinaryString(string1):
 	str = ""
 	for l in string1:
-		str += bin(ord(l))[2:]
+		bi = bin(ord(l))[2:]
+		str += "0"*(8-len(bi))+bi
 	return str
-def convertToEvenBinaryString(string1,string2):
-	str1,str2 = "",""
-	for l1,l2 in zip(string1,string2):
-		b_l1,b_l2 = bin(ord(l1))[2:],bin(ord(l2))[2:]
-		l_b1,l_b2 = len(b_l1),len(b_l2)
-		dl = l_b1-l_b2
-		if(dl>0):
-			b_l2 = "0"*dl+b_l2
-		elif(dl<0):
-			b_l1 = "0"*(-dl)+b_l1
-		str1+=b_l1
-		str2+=b_l2
-	return str1,str2
 
 def hammingDistance(string1,string2):
 	if(len(string1)!=len(string2)):
@@ -37,23 +33,6 @@ def hammingDistance(string1,string2):
 	
 	distance = sum(b1!=b2 for b1,b2 in zip(string1,string2))
 	return distance
-#Very bad
-#def LD(s, t):
-#    if s == "":
-#        return len(t)
-#    if t == "":
-#        return len(s)
-#    if s[-1] == t[-1]:
-#        cost = 0
-#    else:
-#        cost = 1
-#       
-#    res = min([LD(s[:-1], t)+1,
-#               LD(s, t[:-1])+1, 
-#               LD(s[:-1], t[:-1]) + cost])
-#    return res
-	
-#doesn't work
 
 def levenshteinDistance(s1, s2):
     if len(s1) > len(s2):
@@ -101,3 +80,6 @@ def editDistDP(str1, str2, m, n):
                                    dp[i-1][j-1])    # Replace 
   
     return dp[m][n] 
+
+def x():
+	return 2
