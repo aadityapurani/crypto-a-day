@@ -6,7 +6,7 @@ from pwn import *
 # You can buy a digital ocean VPS and run that python source code using 
 # socat -T60 TCP-LISTEN:8000,reuseaddr,fork EXEC:"python -u ./baby_crypt.py"
 
-r = remote('mydomain.com', 8000)
+r = remote('localhost', 8000)
 
 final_flag = ""
 
