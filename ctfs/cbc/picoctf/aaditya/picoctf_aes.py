@@ -65,3 +65,4 @@ for i in range(256):
 	finale = ''.join(iv_list)
 	print get_message(finale, cipher)
 '''
+# picoCTF{fl1p_4ll_th3_bit3_a41d2782}
