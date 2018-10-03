@@ -1,4 +1,3 @@
-from collections import defaultdict
 def add_to_buffer(s,buffer_size,buffer_char = None):
 	dif = (buffer_size-len(s))%buffer_size
 	if(buffer_char == None):
@@ -57,10 +56,3 @@ def unpad_pkcs7(buffer):
     new_buffer = bytearray()
     new_buffer[:] = buffer[:-padding]
     return new_buffer
-
-def repeated_blocks(buffer, block_length=16):
-    reps = defaultdict(lambda: -1)
-    for i in range(0, len(buffer), block_length):
-        block = bytes(buffer[i:i + block_length])
-        reps[block] += 1
-    return sum(reps.values())

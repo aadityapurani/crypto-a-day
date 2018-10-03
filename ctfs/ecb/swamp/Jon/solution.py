@@ -10,7 +10,7 @@ first = begining
 final_flag = ""
 for i in range(100):
     dif = 99-i
-    static_payload =char_choice *dif            #HELLO
+    static_payload =char_choice *dif            
     r.sendline(static_payload)
     begining = r.recvline()
     for test in string.printable:
