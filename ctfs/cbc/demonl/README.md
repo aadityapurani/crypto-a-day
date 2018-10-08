@@ -1,3 +1,3 @@
-http://demo.sjoerdlangkemper.nl/
+http://demo.sjoerdlangkemper.nl/bitflip.php
 
 Can you become administrator?

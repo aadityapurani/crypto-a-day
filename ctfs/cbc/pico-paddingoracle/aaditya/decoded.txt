@@ -1,0 +1,4 @@
+('[+] Decrypted current value (ASCII):', '{"username": "guest", "expires": "2000-01-07", "is_admin": "false"}\r\r\r\r\r\r\r\r\r\r\r\r\r')
+()
+('[+] Decrypted value (HEX):', '7B22757365726E616D65223A20226775657374222C202265787069726573223A2022323030302D30312D3037222C202269735F61646D696E223A202266616C7365227D0D0D0D0D0D0D0D0D0D0D0D0D0D')
+('[+] Decrypted value (ASCII):', '{"username": "guest", "expires": "2000-01-07", "is_admin": "false"}')
