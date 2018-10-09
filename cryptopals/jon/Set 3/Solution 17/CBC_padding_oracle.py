@@ -33,10 +33,11 @@ class Oracle:
     
     def get_encryption_message(self):
         chosen_input = self._possible_inputs[randint(0,len(self._possible_inputs)-1)].encode()
-        #chosen_input = chosen_input.encode()
-        #print(type(chosen_input))
         return CBC_mode.aes_128_cbc_enc(bytearray(chosen_input),bytearray(self._key),bytearray(self.iv))
-    
+        '''
+        chosen_input = self._possible_inputs[randint(0, len(self._possible_inputs) - 1)].encode()
+        return aes_cbc_encrypt(chosen_input, self._key, self.iv)
+        '''
     def decrypt_and_check_padding(self,cipher_text,iv):
         #print("in dec\n")
         plain_text = CBC_mode.aes_128_cbc_dec(bytearray(cipher_text),bytearray(self._key),bytearray(self.iv))
@@ -45,6 +46,7 @@ class Oracle:
         plaintext = aes_cbc_decrypt(ciphertext, self._key, iv, False)
         return is_pkcs7_padded(plaintext)
         '''
+        
 '''
 def create_forced_prev_block(iv,guessedByte,paddinglen,found_text):
     iv = bytearray(iv)
