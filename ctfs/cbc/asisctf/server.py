@@ -55,48 +55,41 @@ def main():
     pr("|-------------------------------------|")
     pr("| Options: 			      |\n| [M]ixed encryption function of FLAG |\n| [D]ecrypting cipher        	      |\n| [E]ncryption & decryption function  |\n| [F]LAG encrypting...                |\n| [Q]uit		  	      |")
     pr("|-------------------------------------|")
-    X = genrandstr(10)
-    print X
-    pr("Submit a printable string X, such that sha256(X)[-6:] =", sha256(X).hexdigest()[-6:])
-    Y = raw_input().strip()
-    if isprintable(Y) and sha256(Y).hexdigest()[-6:] == sha256(X).hexdigest()[-6:]:
-        while True:
-            pr("Send your Options:")
-            ans = raw_input().strip().lower()
-            if ans == 'm':
-                pr(inspect.getsource(AESCipher.EFoF))
-            elif ans == 'f':
-                pr('Send the prefix:')
-                prefix = raw_input().strip()
-                pr('Send the suffix:')
-                suffix = raw_input().strip()
-                if suffix != '' and prefix != '':
-                    enc = AESCipher(key).encrypt(suffix + FLAG + prefix)
-                    pr('Mixed encrypted FLAG =', enc)
-                else:
-                    pr('You must send non-empty suffix and prefix, Bye!!')
-            elif ans == 'd':
-                pr('Send the cipher please:')
-                enc = raw_input().strip()
-                try:
-                    enc = b64decode(enc)
-                    iv = enc[:BLOCK_SIZE]
-                    cipher = AES.new(key, AES.MODE_CBC, iv)
-                    raw = cipher.decrypt(enc)
-                    if FLAG in raw:
-                        pr('Great job :D')
-                    else:
-                        pr('Catch FLAG if you can :P')
-                except:
-                    pr('What?????')
-            elif ans == 'e':
-                pr(inspect.getsource(AESCipher.encrypt), '\n', inspect.getsource(AESCipher.decrypt)) 
-            elif ans == 'q':
-                die("Quiting ...")
+    while True:
+        pr("Send your Options:")
+        ans = raw_input().strip().lower()
+        if ans == 'm':
+            pr(inspect.getsource(AESCipher.EFoF))
+        elif ans == 'f':
+            pr('Send the prefix:')
+            prefix = raw_input().strip()
+            pr('Send the suffix:')
+            suffix = raw_input().strip()
+            if suffix != '' and prefix != '':
+                enc = AESCipher(key).encrypt(suffix + FLAG + prefix)
+                pr('Mixed encrypted FLAG =', enc)
             else:
-                die('You should have valid choise, Bye!')
-    else:
-        die('You must pass this anti-robot challenge :P')
+                pr('You must send non-empty suffix and prefix, Bye!!')
+        elif ans == 'd':
+            pr('Send the cipher please:')
+            enc = raw_input().strip()
+            try:
+                enc = b64decode(enc)
+                iv = enc[:BLOCK_SIZE]
+                cipher = AES.new(key, AES.MODE_CBC, iv)
+                raw = cipher.decrypt(enc)
+                if FLAG in raw:
+                    pr('Great job :D')
+                else:
+                    pr('Catch FLAG if you can :P')
+            except:
+                pr('What?????')
+        elif ans == 'e':
+            pr(inspect.getsource(AESCipher.encrypt), '\n', inspect.getsource(AESCipher.decrypt)) 
+        elif ans == 'q':
+            die("Quiting ...")
+        else:
+            die('You should have valid choise, Bye!')
 
 def die(*args):
     pr(*args)
