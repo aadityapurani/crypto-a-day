@@ -5,7 +5,7 @@ import sys
 from pwn import *
 
 '''
-Solved by @aaditya_purani
+Solved by @aaditya_purani during the ctf
 When json input length is 63, then cookie length is 80 (16 IV + 1 Padding)
 When json input length is 64, then cookie length is 96 (16 IV + 16 Padding)
 When json input length is 80, then cookie length is 112 (16 IV + 16 Padding)
