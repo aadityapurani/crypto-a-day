@@ -1,6 +1,8 @@
 # Another Xor 
 from CSAW Quals 2017
 
+Handout is `cipher.py` and the ciphertext posted below. Go!
+
 ```
 Hey, hey can you find my secret.
 
