@@ -17,13 +17,6 @@ menu = 'Welcome to Sixstars Secret Storage Service\nCommands:\n\tset [key]\tstor
 
 class Task(SocketServer.BaseRequestHandler):
     def proof_of_work(self):
-        proof = ''.join([random.choice(string.ascii_letters+string.digits) for _ in xrange(20)])
-        digest = sha256(proof).hexdigest()
-        self.request.send("sha256(XXXX+%s) == %s\n" % (proof[4:],digest))
-        self.request.send('Give me XXXX:')
-        x = self.request.recv(4)
-        if len(x) != 4 or sha256(x+proof[4:]).hexdigest() != digest: 
-            return False
         return True
 
     def dosend(self, msg):
