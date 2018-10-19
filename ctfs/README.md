@@ -15,4 +15,5 @@ GCM
 LCG
 Length Extension
 MAC and Timing attacks
+RSA
 ```
