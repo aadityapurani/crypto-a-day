@@ -2,6 +2,7 @@
 Most important concept for CTFs. Sage-Math is a must download 
 
 RSA Related attacks
+```
 1.) Common Modulus
 2.) Common Prime
 3.) Fermat
@@ -18,3 +19,4 @@ RSA Related attacks
 14.) Coppersmith
 15.) Weiner variant
 16.) Miller-rabin
+```
