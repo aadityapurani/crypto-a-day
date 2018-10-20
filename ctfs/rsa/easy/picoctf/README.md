@@ -13,6 +13,7 @@ d = e.inverse_mod(phi)
 euler_phi(n) -- Totient
 (d*e)%phi = 1
 e is a co-prime of N and phi
+GCD(e, phi) = 1
 ```
 
 ##### Solution :) 
