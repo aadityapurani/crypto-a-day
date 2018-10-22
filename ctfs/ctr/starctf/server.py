@@ -7,8 +7,7 @@ import binascii
 import os
 import hmac,hashlib
 import argon2
-#from flag import FLAG    # While testing put your flag here
-FLAG  ="test_f"
+from flag import FLAG    # While testing put your flag here
 
 secret='******' # REDACTED HERE
 assert len(secret)==6
@@ -49,21 +48,21 @@ class Task(SocketServer.BaseRequestHandler):
     def handle(self):
         if not self.proof_of_work():
             return
-        self.n1 = ''        # initial message getting decifered
-        self.n2 = ''        # hashed version of the code
-        self.buf = ''       
-        self.mk = ''        
-        self.k = ''         # key
+        self.n1 = ''
+        self.n2 = ''
+        self.buf = ''
+        self.mk = ''
+        self.k = ''
         self.r = 0
         self.dat = {}
         self.dat['flag'] = os.urandom(140) + FLAG
         while True:
             p=self.dorecv()
-            if p[0]=='\x00':        #uses mac and coded message
+            if p[0]=='\x00':
                 if len(p)<17:
                     self.dosend('\xff'+'\x01')
                     break
-                self.n1 = p[1:17] #only looks at the first 16 characters
+                self.n1 = p[1:17]
                 self.n2 = hashlib.sha512(self.n1).digest()[:16]
                 self.buf = argon2.argon2_hash(password=secret, salt=self.n1+self.n2, t=100, m=1000, p=10, buflen=128, argon_type=argon2.Argon2Type.Argon2_i)
                 self.mk = self.buf[:16]
