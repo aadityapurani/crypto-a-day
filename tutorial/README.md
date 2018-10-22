@@ -1,3 +1,5 @@
+###### Author: Aaditya Purani
+
 Mathematics is essential for solving tedious tasks. Here I provide some hacks which are useful because of strength provided by math and algorithm. This post will be continued and content will be added time to time. 
 
 This is the fundamental steps for cryptography and our goal is to be an excellent cryptographer who is able to applying critical thinking skills in solving problems within 40 days. 

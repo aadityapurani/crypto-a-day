@@ -15,4 +15,7 @@ GCM
 LCG
 Length Extension
 MAC and Timing attacks
+RSA
+Diffie Hellman
+Custom Ciphers
 ```
