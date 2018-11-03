@@ -1,0 +1,17 @@
+# After solving, checked AperiKube writeup, they have good helper functions
+
+def ntos(x):
+    n = hex(x)[2:].rstrip("L")
+    if len(n)%2 != 0:
+        n = "0"+n
+    return n.decode("hex")
+
+def ston(x):
+    n = x.encode("hex")
+    return int(n,16)
+
+def strxor(a,k):
+    s = ""
+    for i in range(len(a)):
+        s += chr(ord(a[i])^ord(k[i%len(k)]))
+    return s
