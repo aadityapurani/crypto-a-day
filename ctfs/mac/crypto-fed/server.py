@@ -48,6 +48,7 @@ class SecureServer:
 
     def listen(self):
         while True:
+            print('listening')
             try:
                 client, address = self.sock.accept()
                 client.settimeout(30)

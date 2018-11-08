@@ -2,9 +2,11 @@
 import os, binascii, struct
 from Crypto.Cipher import AES
 
-pad = lambda m: m + bytes([16 - len(m) % 16] * (16 - len(m) % 16))
+pad = lambda m: m + bytes([16 - len(m) % 16] * (16 - len(m) % 16))  #message + pad
 def haggis(m):
     crypt0r = AES.new(bytes(0x10), AES.MODE_CBC, bytes(0x10))
+    t = len(m).to_bytes(0x10, 'big') + pad(m)
+    print(t)
     return crypt0r.encrypt(len(m).to_bytes(0x10, 'big') + pad(m))[-0x10:]
 
 target = os.urandom(0x10)

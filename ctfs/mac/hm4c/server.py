@@ -1,7 +1,7 @@
 import sys
 import base64
-
-from flag import FLAG
+FLAG = 'this_is_a_flag'
+#from flag import FLAG
 from hashlib import sha256
 
 def to_int(x):
