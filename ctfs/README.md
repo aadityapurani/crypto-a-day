@@ -17,5 +17,6 @@ Length Extension
 MAC and Timing attacks
 RSA
 Diffie Hellman
+Elliptic Curves
 Custom Ciphers
 ```
